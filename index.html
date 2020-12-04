@@ -1,9 +1,11 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <title> Project Nuisance </title>
-  <meta name="description" content="Use of MRI QC metrics, scanning
-									parameters and seasonal variation data to control for variance in MRI studies ">
+  <title>Reproducible Execution of Data Collection/Processing </title>
+  <meta name="description" content="Slides for the ReproNim Webinar
+									talk which walks through various
+									aspects of a study to make it more
+									reproducible ">
   <meta name="author" content=" Yaroslav O. Halchenko ">
 
   <meta charset="utf-8">
@@ -24,7 +26,7 @@
 
   <a href="http://centerforopenneuroscience.org/"><img data-src="pics/con-ccn-dartmouth-letterhead.svg"></a>
 
-  <h3>Use of MRI QC metrics, scanning parameters and seasonal variation data to control for variance in MRI studies</h3>
+  <h3>Reproducible Execution of Data Collection/Processing</h3>
 
   <!--
   <table style="border:none">
@@ -47,11 +49,6 @@ and seasonal variation data to control for variance in MRI studies</h3>
 		<a href="https://twitter.com/yarikoptic" target="_blank">
 		  <img data-src="pics/twitter.png" style="height:30px;margin:0px" />
 		  @yarikoptic</a></small></td>
-	<td>Christopher P. Cheng
-	  <br><small>
-		<a href="https://twitter.com/chrispcheng="_blank">
-		  <img data-src="pics/twitter.png" style="height:30px;margin:0px" />
-		  @chrispcheng</a></small></td>
   </tr>
   <tr>
     <td>
@@ -74,6 +71,7 @@ and seasonal variation data to control for variance in MRI studies</h3>
 </small>
 </section>
 
+<!--
 <section>
   <h2>Acknowledgements</h2>
   <table>
@@ -119,7 +117,7 @@ and seasonal variation data to control for variance in MRI studies</h3>
 	</td>
   </tr>
 </div>
-<!--
+<!- -
   <div style="margin-top:40px;margin-bottom:20px;text-align:center"><strong>Collaborators</strong></div>
   <div style="margin-top:-20px">
   <img style="height:100px;margin:20px" data-src="pics/hbp_logo.png" />
@@ -131,120 +129,278 @@ and seasonal variation data to control for variance in MRI studies</h3>
   <img style="height:120px;margin:20px" data-src="pics/cbrain_logo.png" />
   <img style="height:140px;margin:20px" data-src="pics/brainlife_logo.png" />
   </div>
-  -->
+  - ->
   </td>
   </tr>
   </table>
 </section>
+-->
 </section>
+
+<section data-markdown  data-separator="^\n----\n" data-vertical="^\n---\n"><textarea data-template>
+<img style="height:650px;margin-bottom:30px" data-src="pics/ReproSpectrum.png">
+
+
+----
+
+# Ultimate Goal/Approach
+
+Reproducibility should become merely a *feature* (if not a
+side-effect) of the results.
+</textarea></section>
 
 <section>
- <section data-markdown  data-separator="^\n----\n" data-vertical="^\n---\n"><textarea data-template>
-## Why scan Phantoms?
+<section data-markdown  data-separator="^\n----\n" data-vertical="^\n---\n"><textarea data-template>
 
-They
-- are "cheap"
-- don't mind
-- have known stable characteristics
+
+# But HOW?
 
 ----
 
-## Say Hi to Emmet
+## HOWTO: Guiding principles
 
-- they can be fun to build
-
-![Emmet](./pics/emmet-IMG_1028.JPG)
-<!-- .element: style="height: 400pt" -->
-
-http://datasets.datalad.org/?dir=/dbic/QA/sub-emmet
-<!-- .element: style="font-size: 12pt" -->
+- Be greedy
+  - get as much as possible (even if you think you don't need it)
+- Be lazy
+  - manually do as little as necessary
 
 ----
 
-## But how stable are those?
+## HOWTO: Guiding principles
 
-![SNR](./pics/snr_09142020.png)
-<!-- .element: style="height: 500pt" -->
-
-https://www.dartmouth.edu/dbic/research_infrastructure/qualityassurance.html
-<!-- .element: style="font-size: 16pt" -->
-
-
-----
-
-## What that data can tell us?
-
-### QA
-
-#### If scanner operational characteristics changed:
-
-- identify the reason
-- address the issue and return back to "normal"
-  - the new "normal" might be different
+- Be ~~greedy~~ thorough
+  - get as much as possible (even if you think you don't need it)
+  - know what you are going to do and what you have done
+- Be ~~lazy~~ efficient
+  - manually do as little as necessary
+  - achieve more than originally planned
 
 ----
 
-## What that data can tell us?
+## One more: Pareto Principle
 
-### QA
 
-#### If scanner operational characteristics did not change:
+![Pareto principle](pics/webshot-pareto-search.jpg)
 
-- all is good, bury the data
-- phantom data is not considered useful beyond QA
+more: https://en.wikipedia.org/wiki/Pareto_principle
+
+</textarea>
+</section></section>
+<section><section data-markdown  data-separator="^\n----\n" data-vertical="^\n---\n"><textarea data-template>
+
+# What about a Recipe?
+
+----
+## Recipe of a Study
+
+- **Ingredients**:
+  - humans  (100% of *effort*)
+  - computers (0% of *effort*)
+  - language(s) (uncounted  *effort*, 100% of the *result*)
+    - English/... (human -to- human)
+    - programming/scripting languages (human -to- computer)
+    - standards (human/computer -to- computer/human)
+- **Steps**:
+  - **humans**: plan the study ahead
+  - **humans and computers**: do data collection/processing
+
+note:
+- automate: use language(s) to make computers (not humans) do boring stuff
+- human-to-human languages aren't good for automation
 
 ----
 
-## But we saw that it does change!
+### Currently Dominant Recipe Effort Proportions
 
-- *Q1: Why/What?*
-
-   - factors effecting phantom data effect human participants data too
-
-   - *What factors effect QA metrics?*
-   - *How well could we explain variance in QA metrics?*
-
-
-- *Q2: How to account for "scanner mood" in human data?*
-
-   - some factors could not be easily accounted for directly in human data
-
-   - *Can we use phantom QA metrics as a "proxy" of current "effects"?*
-
-   </textarea>
-</section>
-</section>
-
-<section>
-<h2>Study: Nuisance</h2>
-
-<img data-src="pics/f1000-webshot-20200930.png"/>
-
-<small>
-Cheng CP and Halchenko YO. A new virtue of phantom MRI data: explaining variance in human participant data [version 1; peer review: awaiting peer review]. F1000Research 2020, 9:1131 (<a href=https://doi.org/10.12688/f1000research.24544.1>https://doi.org/10.12688/f1000research.24544.1</a>)
-</small>
-</section>
-
-
-<section>
- <section data-markdown  data-separator="^\n----\n" data-vertical="^\n---\n"><textarea data-template>
-## What (Data sources)
-
-- 3.0 Tesla Siemens Prisma
-- duration: 10/30/2017--08/28/2018
-- 32-channel head coil
-- Agar phantom (Ethics: did not mind)
-  - QA is typically done (almost) each Monday
-- 206 participants (Ethics: consented to data re-sharing)
-  - see https://open-brain-consent.readthedocs.io
-  - data comes from studies of 3 PIs at DBIC
-  - 18-64 years of age
-  - 78 male/128 female
+- **Steps**:
+  - **humans**: plan the study ahead (<20% effort)
+  - **(a good number of) humans and (some) computers**:<br/> do data collection/processing (>80% effort)
 
 ----
 
-## With what (Software etc)
+### Target Recipe Effort Proportions
 
+**Prove Pareto to be *wrong*** <!-- .element: style="color:#ff0000" -->
+<br/>**and that we can avoid wasting our effort** <!-- .element: style="color:#ff0000" -->
+
+- **Steps**:
+  - **humans**: plan the study ahead (>80% effort)
+  - **(some) humans and (many) computers**: <br>
+    automated data collection/processing (<20% effort)
+
+----
+
+### Recipe Ingredients for Planing Ahead (>80% effort)
+
+![5 steps](pics/repronim-5steps.png)
+
+----
+### Humans: Plan Ahead (>80% effort)
+
+- Plan to be ~~greedy~~ thorough
+  - plan for **all** [5 ReproNim steps](http://5steps.repronim.org) (including analyses)
+    - prepare to be (ab)used ([Halchenko&Hanke, 2015](http://dx.doi.org/10.1186/s13742-015-0072-7))
+    - be ~~lazy~~ efficient and (re)use work of others
+    - choose what to (ab)use:
+      - language(s), technologies, and approaches
+  - choose an RDM (Research Data Management) platform/approach
+      - decide how to *log* what you will have done
+  - aim to collect rich(er) datasets
+- Pre-register
+  - treat it as a checklist (now) and a "regression-test" (later) for your plan
+- Prepare/train humans to "talk" to computers
+  - [ReproNim Training](https://www.repronim.org/teach.html)
+  - Listen to and/or participate in
+    [BrainHacks](https://brainhack.org/tutorials.html)
+  - [DataLad Handbook](http://handbook.datalad.org)
+
+</textarea></section></section>
+<section><section data-markdown  data-separator="^\n----\n" data-vertical="^\n---\n"><textarea data-template>
+
+# Plan Ahead: Choose an RDM
+
+----
+
+![RDM](pics/google-rdm.png)
+
+----
+### Plan Ahead: YODA
+
+![YODA principles](pics/yoda-principles.png)
+
+https://github.com/myyoda/poster/ <br/>by Michael Hanke (CP7, DataLad) et al.
+
+----
+### Plan Ahead: YODA's Layout
+
+![YODA layout](pics/yoda-layout.png)
+
+----
+
+### Plan Ahead: YODA's Hierarchy
+
+![YODA Hiearchy](pics/yoda-hierarchy-with-containers.png)
+
+https://github.com/ReproNim/containers/
+
+----
+
+### Example: YODA's DataLad Reproducible Paper
+
+![DataLad repropaper](pics/datalad-handbook-repropaper.png)
+
+http://handbook.datalad.org/en/latest/usecases/reproducible-paper.html <br/>by
+ReproNim YODA master Adina Wagner, Michael Hanke, et al.
+
+----
+
+### Fact: ~~No~~Everybody should care about YODA
+
+![fMRIPrep YODA](pics/fmriprep-yoda-PR.png)
+
+https://fmriprep.org by Russ Poldrack (CP5*, OpenNeuro), et al.
+
+----
+
+### Plan Ahead: More on YODA via DataLad
+
+![DataLad Handbook YODA](pics/datalad-handbook-yoda.png)
+
+http://handbook.datalad.org/en/latest/basics/basics-yoda.html
+
+</textarea></section></section>
+<section><section data-markdown  data-separator="^\n----\n" data-vertical="^\n---\n"><textarea data-template>
+
+# Plan Ahead:<br/> aim to collect rich(er) datasets
+
+----
+
+## Plan Ahead: establish and automate collection<br/> of any relevant (meta)data
+
+- prepare to be (ab)used
+  - ~~others~~ you could find (meta)data relevant to their study missing
+- more of explained variance = higher power
+  - new explanations of "noise" regularly emerge
+- manual data entry/wrangling = hard to trace/fix data bugs
+- we must be efficient:
+  - (ab)use existing solutions
+  - seek for low %effort solutions,
+- have data ≠ have to analyze all data
+
+</textarea></section></section>
+<section><section data-markdown  data-separator="^\n----\n" data-vertical="^\n---\n"><textarea data-template>
+
+## Plan Ahead: Collect DICOMs (not NIfTI, PAR/REC, ...)
+
+- DICOMs contain lots of relevant metadata
+  - most of the contained metadata is not relevant to your study
+- Conversion from DICOMs to BIDS could be automated
+- You should be able to
+  - extract additional metadata happen you need it
+  - reconvert if the conversion tool was buggy
+
+----
+
+### Plan Ahead: HeuDiConv/ReproIn
+
+- **HeuDiConv** (https://github.com/nipy/heudiconv)
+
+  - Uses [dcm2niix](https://github.com/rordenlab/dcm2niix/) by
+    ReproNim Guru Chris Rorden for basic DICOM -> NIfTIs conversion
+  - A flexible scriptable (Python) framework for conversion from
+    DICOMs into an arbitrary layout
+  - BIDS-aware and comes with a collection of conversion heuristics
+
+- **ReproIn** (https://github.com/repronim/reproin)
+  - A convention for organizing and naming sequences on the scanner
+    console
+	- BIDS-like
+	- **very low %effort to start using**
+  - HeuDiConv heuristic to convert from such convention to BIDS
+
+----
+### Plan Ahead: use ReproIn Convention
+
+![DBIC conversions](pics/dbic-conversions.png)
+
+----
+### Plan Ahead: ReproIn or not but automate conversion to BIDS!
+
+- https://github.com/repronim/reproin/
+- "Taking Control of your DICOM Data: ReproIn/Heudiconv Tools" ReproIn
+  webinar available from https://www.repronim.org/webinar-series.html
+- WiP: reproin  helper to streamline handling of multiple studies
+- If not ReproIn, consider
+  - https://github.com/psychoinformatics-de/datalad-hirni (Hanke, CP7)
+  - https://github.com/brainlife/ezbids (Pestilli, Brainlife, CP6*)
+
+</textarea></section></section>
+<section><section data-markdown  data-separator="^\n----\n" data-vertical="^\n---\n"><textarea data-template>
+
+## Plan Ahead: Get your hands on Phantom QA Data)
+### Surprise: Phantom QA data can explain (some)<br/> variance in your data!<br/>
+(Operation code-name: ReproPhantom (?))
+
+----
+
+### FYI: Study "Nuisance"
+
+![f1000](pics/f1000-webshot-20200930.png)
+
+Cheng CP and Halchenko YO. A new virtue of phantom MRI data:
+explaining variance in human participant data (v1; under peer
+review). F1000Research 2020, 9:1131 <!-- .element: style="font-size:0.6em" -->
+https://doi.org/10.12688/f1000research.24544.1
+
+Full slide stack:  <!-- .element: style="font-size:0.6em" -->
+http://datasets.datalad.org/centerforopenneuroscience/nuisance/presentations/2020-NNL/
+
+----
+
+### Planned Ahead: (somewhat)
+
+- Phantom Data: DBIC QA ([///dbic/QA](http://datasets.datalad.org/?dir=/dbic/QA))
+- Human Data: 206 participants from studies of 3 PIs at DBIC
 - DICOM-to-BIDS: [HeuDiConv](https://github.com/nipy/heudiconv/) with [ReproIn](https://github.com/repronim/reproin/) heuristic
 - Base OS: [Debian GNU/Linux](http://debian.org) + [NeuroDebian](http://neuro.debian.net)
 - QA: [MRIQC](https://github.com/poldracklab/mriqc) (BIDS-App)
@@ -259,7 +415,184 @@ Cheng CP and Halchenko YO. A new virtue of phantom MRI data: explaining variance
 - Organization: follows [YODA principles](https://github.com/myyoda/poster/blob/master/ohbm2018.pdf)
   - https://github.com/proj-nuisance/nuisance
 
+----
+### Model: Phantom SNR "explained"
+
+![Fig 2](pics/f1000-webshot-20200930-fig2.png)
+
+----
+
+### Model: Phantom SNR (variables)
+
+![Table 2](pics/f1000-webshot-20200930-tab2.png)
+
+----
+
+### Model: Gray brain matter
+
+![Fig 3](pics/f1000-webshot-20200930-fig3.png)
+
+----
+
+### Model: Gray brain matter (variables)
+
+![Table 3](pics/f1000-webshot-20200930-tab3.png)
+
+----
+### Plan Ahead: Talk to your MR physicist/technician
+
+- they better be doing QA
+- do not discard phantom data - can come handy
+- **ultra low %effort** to keep phantom data around
+- **small %effort** to make use of it
+
 </textarea></section></section>
+<section><section data-markdown  data-separator="^\n----\n" data-vertical="^\n---\n"><textarea data-template>
+
+## Plan Ahead: Physiological data
+
+### Let's streamline acquisition of physiological data<br/>
+(Operation code-name: ReproPhys)
+
+----
+### Others Planned it already: [phys2bids](https://github.com/physiopy/phys2bids/)
+
+![phys2bids](pics/phys2bids-rtd.png)
+
+A nice overview: [OHBM 2020 poster](https://cdn-akamai.6connex.com/645/1827//phys2bids_OHBM_15922384856589877.pdf)
+
+----
+### Others Planned it already: [bidsphysio](https://github.com/cbinyu/bidsphysio)
+
+![bidsphysio](pics/bidsphysio-github.png)
+
+HeuDiConv support PR: https://github.com/nipy/heudiconv/pull/446
+
+----
+### Plan Ahead: Consider collecting physiological data
+
+- benefits are known
+  - again contribute to the power of your studies
+- tools for conversion/slicing are there!
+- relatively high **%effort** at the moment to setup/do
+  - pales in comparison to other **%effort**s spent
+
+</textarea></section></section>
+<section><section data-markdown  data-separator="^\n----\n" data-vertical="^\n---\n"><textarea data-template>
+
+## Plan Ahead: "Raw" audio/video stimuli
+
+### Let's collect all video and audio stimuli as presented to the participants<br/>
+(Operation code-name: ReproStim)
+
+----
+### But WHY/What For?
+
+- QA (was there a jitter/dropped stimuli/randomization...)?
+- make it possible to forward model **every** dataset
+  - *for resting state - see previous sections*
+  - explain low level signal features
+  - post-hoc salience features analysis
+- **100% reproduce experiment stimulation**
+
+----
+### Plowing Ahead: https://github.com/ReproNim/reprostim
+
+- Goal: **0% effort**
+  - Minimal **%effort** to setup
+  - Fully seamless and automated after that
+- HOW:
+  - [Video](https://www.amazon.com/gp/product/B00BLZDY6A/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1)/Audio splitters
+  - Video/Audio grabber, e.g. [Magewell USB Capture DVI Plus](https://www.amazon.com/gp/product/B01MSDFAO5/)
+    - loseless video codec
+  - A new video file upon connect/change of resolution<br>
+	 (e.g., `2020.11.24.12.57.08_2020.11.24.15.51.23.mkv`   <!-- .element: style="font-size:0.8em" -->)
+  - Synchronization:
+    - NTP where possible <br/>(stimuli delivery computer, video grabber, ...)
+	- video stream QR time-stamping and detection/decoding
+  - Automated "slicing" into BIDS datasets (WiP)
+
+</textarea></section></section>
+<section><section data-markdown  data-separator="^\n----\n" data-vertical="^\n---\n"><textarea data-template>
+
+## Plan Ahead: Events description
+
+### Let's automate collection of all events information in consistent machine-readable form<br/>
+(Operation code-name: ReproEvents)
+
+----
+## Still Planning Ahead: Join us
+
+- **There is no generic library/helper yet**
+- Target: helper+converters for PsychoPy/PTB-3 to produce rich<br/>
+  BIDS [`_events.tsv` + `_events.json`](https://bids-specification.readthedocs.io/en/stable/04-modality-specific-files/07-behavioral-experiments.html)<br/>
+  with [Hierarchical Event Descriptors (HED)](https://github.com/hed-standard/hed-specification)
+- But with **little %effort** you should already make you stimuli
+  scripts/logs ready<br/> (see e.g., https://github.com/mvdoc/pitcher_localizer)
+
+</textarea></section></section>
+<section><section data-markdown  data-separator="^\n----\n" data-vertical="^\n---\n"><textarea data-template>
+
+## Plan Ahead Summary
+
+TODO
+
+</textarea></section></section>
+<section><section data-markdown  data-separator="^\n----\n" data-vertical="^\n---\n"><textarea data-template>
+
+### Reproducible Execution of Data Processing
+
+Becomes more feasible with increased automation <br/>
+and good (human AND machine-readable) logging.
+
+----
+
+#### Languages
+
+
+----
+
+### Recipe extended: "do as little as necessary"
+
+
+- Plan the study ahead
+- (ab)Use work of other humans
+  - existing tools
+  - software/data distributions
+- Automate (make computers do the work for you)
+  - acquisition
+  - conversion
+  - computing
+  - logging
+
+----
+
+### Recipe extended: "get as much as possible"
+
+- "meta"data
+  - stimuli
+  - ...
+- auxiliary data
+  - phantom QA scans
+  - phys recordings
+
+
+----
+
+### You are (not) special
+
+
+### Computers: Automated data collection/processing (<20% effort)
+
+TODO:
+
+----
+
+   </textarea>
+</section>
+</section>
+
+
 
 <section>
  <section data-markdown  data-separator="^\n----\n" data-vertical="^\n---\n"><textarea data-template>

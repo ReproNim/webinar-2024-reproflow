@@ -1,10 +1,11 @@
-# A short talk for NNL 2020 Virtual roundtable about the Nuisance project
+# A ReproNim December 2020 Webinar 
 
-Slides setup is based on an excellent talk about DataLad for DebConf 2020 by Adina W.
+Slides setup is based on http://github.com/proj-nuisance/talk-2020-NNL,
+which are based an excellent talk about DataLad for DebConf 2020 by Adina W.
 provided within https://github.com/datalad-handbook/course (Copyright
 Michael Hanke, Adina Wagner, et al)
 
-"Live" version is available at http://datasets.datalad.org/con/nuisance/presentations/2020-NNL/ .
+"Live" version is available at http://datasets.datalad.org/...TODO .
 
 ## License
 
