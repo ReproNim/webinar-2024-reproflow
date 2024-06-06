@@ -5,7 +5,7 @@ which are based an excellent talk about DataLad for DebConf 2020 by Adina W.
 provided within https://github.com/datalad-handbook/course (Copyright
 Michael Hanke, Adina Wagner, et al)
 
-"Live" version is available at http://datasets.datalad.org/repronim/artwork/talks/webinar-2020-reprocomp/
+"Live" version is available at http://datasets.datalad.org/repronim/artwork/talks/webinar-2024-reproflow/
 
 ## License
 
