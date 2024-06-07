@@ -1,4 +1,4 @@
-# ReproNim December 2020 Webinar: Reproducible Execution of Data Collection/Processing
+# ReproNim December 2024 Webinar on "... SciOps Automation ..."
 
 Slides setup is based on http://github.com/proj-nuisance/talk-2020-NNL,
 which are based an excellent talk about DataLad for DebConf 2020 by Adina W.
