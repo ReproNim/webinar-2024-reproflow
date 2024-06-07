@@ -92,7 +92,7 @@
 <!-- .element: class="fragment" data-fragment-index="1" -->
 <img style="height:650px;margin-bottom:30px" data-src="pics/ReproSpectrum.png"/>
 
-<small>From <a href="TODO!!!">"What is Reproducibility"</a>  by DN Kennedy.</small>
+<small>From <a href="https://repronim.wordpress.com/2017/09/20/whatrepro/">"What is Reproducibility"</a>  by DN Kennedy.</small>
 
 
 ----
@@ -125,12 +125,23 @@ AKA "Reproducible by Design"
 
 <!-- .slide: data-transition="fade" -->
 
+<div id="birch" style="position: absolute;
+                        top: -200px;
+                        right: -200px;
+                        width: 500px;
+                        height: 400px;">
+						<img src="pics/borrowed/CMM-Fig1.png"></img>
+ </div>
+
 
 Levels 4 and 5 transform research operations by adopting technologies
 for **automation, scalability, and efficient collaboration**. We
 collectively refer to these methodologies as SciOps, aligning with the
 principles of other successful “Ops” disciplines in the technology
 industry: DevOps, DataOps, and MLOps.
+
+<small>From <a href="https://arxiv.org/abs/2401.00077v1">"A Maturity Model for Operations in Neuroscience Research"</a>, 2023 by Erik C. Johnson, ..., Dimitri Yatsenko  <a href="https://arxiv.org/abs/2401.00077v1">https://arxiv.org/abs/2401.00077v1</a></small>
+
 
 ----
 
@@ -190,14 +201,6 @@ I was told that my Lasagna would be as great if I just follow the recipe... lier
 ----
 ## Recipe of a Study
 
-<div id="pareto" style="position: absolute;
-                        top: -20px;
-                        right: 0px;
-                        width: 400px;
-                        height: 400px;">
-						<img src="pics/Paretos-80-20-rule.png"></img>
- </div>
-
 - **Ingredients**:
   - humans  (100% of *effort*)
   - computers (0% of *effort*)
@@ -219,85 +222,23 @@ note:
 
 ----
 
-# Languages
+## ❮Languages-Rant❯
 
-----
+Part of the prior webinar "Reproducible Execution of Data Collection/Processing"
 
-## Quick take aways
+<small>
 
-- Human languages ... suck (unless you are into Poetry or Literature)
-  - https://www.cognitiveatlas.org by Russ Poldrack (CP5*)
-  - https://neuinfo.org/interlex by TR&D1 group
-  - ... but are the ones for README
-- Methods & Results *should be* **low %effort** collation of automatically
-  generated materials in both human- AND computer- readable forms
-  - not unprecedented: FSL, fMRIPrep, ...
-- The *best* Programming language is the one which **minimizes %effort**
-  -  <!-- .element: class="fragment" data-fragment-index="2" --> Corollary: <br/>%effort is minimized by using no Programming language
+- Video: https://youtu.be/dwBtrpI2iS0
+- Slides: https://datasets.datalad.org/repronim/artwork/talks/webinar-2020-reprocomp/#/4/2
 
-----
+</small>
 
-## ?
+### Main take away: Embrace standards
 
-----
-
-## Standards
-
-*The problem with Programming:*
-
-- It takes **huge %effort** to write/test/maintain a program
-- A program typically creates a new "language" for interaction with it
-  - it takes **%effort** to learn a new program
-  - a program cannot learn to *talk* to another program,<br/> so it takes
-    **%effort** to script "adapter" or "pipeline" communication between<br/>
-	(thank you NiPype, TR&D2, BIDS-Apps, Boutiques, etc for helping out!)
-
-----
-
-## Standards
-
-*To **minimize %effort** for human/computer -to- computer/human interactions*:
-
-- reuse and contribute to existing programs
-- make programs operate on and produce data in standard form(s):
- - BIDS (Derivatives, Models, ...), NIDM, HED, ...
- - DICOM, NIfTI, JSON, YAML, ...
-- make programs interface via standard(ized) interface(s):
- - BIDS-Apps, ABC apps, Boutiques, Flywheel Gears, ...
-- contribute to development of standards to
- - **minimize the %effort to produce results in a standard form so<br/>
-  they could be re-used with minimal %effort to produce new results**
- - become part of their 80% coverage
-   - <!-- .element: class="fragment" data-fragment-index="2" --> share your use-cases: <a href="https://github.com/bids-standard/bids-2-devel/issues/62">bids-2-devel/issues/62</a>
-
-----
-
-## Plan Ahead: Prior Webinars on "Languages" and tools to master them
-
-- *Harmonizing clinical and behavioral data collection through ReproSchema* by Satra Ghosh
-- *Tools and Techniques for BIDS Semantic Annotation and Query Across Datasets with NIDM* by David Keator
-- *Damn it Jim, I am a researcher not an ontologist: Exploring and using terminologies* by Jeff Grethe
-- ... and more at https://www.repronim.org/webinar-series.html
-
-
-----
-
-
-
-# Main take away: <br/>Embrace standards
-
-## </Languages Rant>
+## ❮/Languages-Rant❯
 
 ----
 ## Recipe of a Study
-
-<div id="pareto" style="position: absolute;
-                        top: -20px;
-                        right: 0px;
-                        width: 400px;
-                        height: 400px;">
-						<img src="pics/Paretos-80-20-rule.png"></img>
- </div>
 
 - **Ingredients**:
   - humans  (100% of *effort*)
@@ -308,8 +249,8 @@ note:
     - standards (human/computer -to- computer/human)
 -   <!-- .element: class="fragment" data-fragment-index="2" -->
   **Steps**:
-  - **humans**: plan the study ahead
-  - **humans and computers**: do data collection/processing
+  - **humans**: plan the study ahead (**Science!**)
+  - **humans and computers**: do data collection/processing (**SciOps!**)
 
 note:
 - automate: use language(s) to make computers (not humans) do boring stuff
@@ -318,6 +259,15 @@ note:
 ----
 ### Currently Dominant Recipe Effort Proportions
 <!-- .slide: data-transition="fade" -->
+
+<div id="pareto" style="position: absolute;
+                        top: -300px;
+                        right: -200px;
+                        width: 400px;
+                        height: 400px;">
+						<img src="pics/Paretos-80-20-rule.png"></img>
+ </div>
+
 
 - **Steps**:
   - **humans**: plan the study ahead (<20% effort)
@@ -706,7 +656,25 @@ HeuDiConv support PR: https://github.com/nipy/heudiconv/pull/446
 ![reproflow](pics/reproflow-projects1.png)
 
 ----
+### ReproFlow: Projects
 
+<!-- .slide: data-transition="fade" -->
+
+<div id="birch" style="position: absolute;
+                        top: -200px;
+                        right: -200px;
+                        width: 400px;
+                        height: 400px;">
+						<img src="pics/reproflow-projects1.png"></img>
+ </div>
+
+- **ReproStim** - capture audio and video stimuli
+- **ReproEvents** - capture behavioral events from participants
+- **Con/noisseur** - capture and QA operator input at the scanner console
+- **ReproMon** - online operator feedback and alerts in case of incidents or anomalous metadata input
+
+
+----
 
 ### Let's collect all video and audio stimuli as presented to the participants<br/>
 (Operation code-name: ReproStim)
@@ -801,6 +769,8 @@ curdes business
 ----
 
 ### ReproFlow: Projects
+
+<!-- .slide: data-transition="fade" -->
 
 ![reproflow](pics/reproflow-projects1.png)
 
