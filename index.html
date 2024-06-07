@@ -131,6 +131,19 @@ AKA "Reproducible by Design"
 
 ----
 
+## Level 4: Scalable — Introducing SciOps
+
+<!-- .slide: data-transition="fade" -->
+
+
+Levels 4 and 5 transform research operations by adopting technologies
+for **automation, scalability, and efficient collaboration**. We
+collectively refer to these methodologies as SciOps, aligning with the
+principles of other successful “Ops” disciplines in the technology
+industry: DevOps, DataOps, and MLOps.
+
+----
+
 # Where do we start?
 
 <!-- .slide: data-transition="fade" -->
@@ -144,6 +157,8 @@ AKA "Reproducible by Design"
   - get as much as possible (even if you think you don't need it ATM)
 - Be lazy
   - manually do as little as necessary
+- Be not special
+  - do not come up with *your ways*
 
 ----
 
@@ -153,10 +168,16 @@ AKA "Reproducible by Design"
 
 - Be ~~greedy~~ thorough
   - get as much as possible (even if you think you don't need it)
-  - know what you are going to do and what you have done
+  - know what you are going to do and what you have done:
+    - **automate provenance information collection**
 - Be ~~lazy~~ efficient
   - manually do as little as necessary
+    - **automate as much as feasible**
   - achieve more than originally planned
+- Be ~~not special~~ ~~academic~~ formal
+  - do not come up with *your ways*
+    - **use standardized approaches**
+  - become efficient collaborator
 
 ----
 
@@ -340,7 +361,7 @@ note:
   - plan for **all** [5 ReproNim steps](http://5steps.repronim.org)
     (including *do-ing* analyses etc.)
     - prepare to be (ab)used ([Halchenko&Hanke, 2015](http://dx.doi.org/10.1186/s13742-015-0072-7))
-    - be ~~lazy~~ efficient and learn from/(re)use work of others
+    - be ~~lazy~~ **efficient** and learn from/(re)use work of others
 	- improve your study workflow SciOps
       - check webinar from <a href="https://youtu.be/zFr8DyTGhxQ">Dec 2, 2022 by Keith Bush</a>
   - **choose an RDM (Research Data Management) platform/approach**
@@ -412,6 +433,21 @@ https://fmriprep.org by Russ Poldrack (CP5*, OpenNeuro), et al.
 ![DataLad Handbook YODA](pics/datalad-handbook-yoda.png)
 
 http://handbook.datalad.org/en/latest/basics/basics-yoda.html
+
+----
+
+### Plan Ahead: More on DataLad and Its Automations
+
+[![Distribits 2024: What is in the DataLad Sandwich](pics/distribits-datalad-sandwich-whyvc.png)](https://www.youtube.com/watch?v=Mkb7qpYaL7o)
+
+<small>
+
+[distribits 2024](https://distribits.live). Yaroslav O. Halchenko. "What's in the DataLad sandwich" AKA DataLad "ecosystem":
+
+- Video: https://www.youtube.com/watch?v=Mkb7qpYaL7o
+- Slides: https://datasets.datalad.org/centerforopenneuroscience/talks/2024-distribits-datalad.html
+
+</small>
 
 ----
 ### Plan Ahead: DataLad or not but ...
@@ -734,31 +770,6 @@ good RDM, and good (human- AND machine-) readable *logging*.
 
 ----
 
-## The ultimate *Do It* (the 20%)
-
-- **(some) humans and (many) computers**: <br>
-  automated data collection/processing (<20% effort)
-  - data collection
-  - QA
-  - pre-processing
-  - analysis
-
-----
-
-## Random Example: [srndna-master](https://github.com/victoriaakelly/srndna-master)
-
-<div id="victoriaakelly" style="position: absolute;
-                        top: -20px;
-                        right: 0px;
-                        width: 200px;
-                        height: 200px;">
-						<img src="https://avatars3.githubusercontent.com/u/35232563?s=400&u=db58024a7062472bc798abbdc7183672fb9ec84b&v=4"></img>
- </div>
-
-![README](pics/example-workflow-readme.png)
-
-----
-
 ## The ultimate do it (the 20%)
 
 - **(some) humans and (many) computers**: <br>
@@ -777,8 +788,18 @@ good RDM, and good (human- AND machine-) readable *logging*.
     etc)
   - containers can help to collaborate/scale/debug/...
 
+
 ----
-### ReproYODA approach with [ReproNim/containers](https://github.com/ReproNim/containers/#a-typical-workflow)
+### SciOP: ReproYODA with [ReproNim/containers](https://github.com/ReproNim/containers/#a-typical-workflow)
+
+<!-- .slide: data-transition="fade" -->
+
+![ReproNim/containers workflow](pics/yoda-hierarchy-with-containers.png)
+
+----
+### SciOP: ReproYODA with [ReproNim/containers](https://github.com/ReproNim/containers/#a-typical-workflow)
+
+<!-- .slide: data-transition="fade" -->
 
 ![ReproNim/containers workflow](pics/repronim-containers-workflow.png)
 
@@ -795,15 +816,83 @@ good RDM, and good (human- AND machine-) readable *logging*.
 *Version control your data and computation using containers, DataLad and ReproMan, and reproducible they be!* <br/> https://www.repronim.org/webinar-series.html
 
 
+----
+
+### More on ReproMan
+
+[![Distribits 2024: Joe on ReproMan](pics/distribits-reproman.png)](https://www.youtube.com/watch?v=P0SOGt3xWmw)
+
+<small>
+
+[distribits 2024](https://distribits.live). Joe Wexler: fMRI Pipelines on HPC with DataLad and ReproMan
+
+- Video: https://www.youtube.com/watch?v=P0SOGt3xWmw
+
+</small>
+
 </textarea>
+
+
+<!-- forgot that iframes to github do not work!
+----
+
+### Welcome the ultimate YODA style OpenNeuroDerivatives from CP5* OpenNeuro
+
+	<iframe src="https://github.com/OpenNeuroDerivatives/"
+    style="width:100%; height:600px;"></iframe>
+-->
+
 </section>
+
+  <section data-transition="None">
+    <h3>
+      YODA style OpenNeuro Derivatives from CP5* OpenNeuro
+    </h3>
+<small>
+	<center><p>Explore/obtain yourself from <a href="https://github.com/OpenNeuroDerivatives">https://github.com/OpenNeuroDerivatives</a></p></center>
+</small>
+
+<div style="position: relative; width: 100%; height: 80vh;">
+
+    <img src="pics/webshot-onderivs-listing.png" class="" width="80%" style="position: absolute; top: 0%; left: 0%" /> 
+    <img src="pics/webshot-onderivs-gitmodules.png" class="fragment fade-in" width="80%"  style="position: absolute; top: 5%; left: 5%"  />
+    <img src="pics/webshot-onderivs-repromanfolder.png" class="fragment fade-in" width="80%"  style="position: absolute; top: 10%; left: 10%"  />
+    <img src="pics/webshot-onderivs-commandarray.png" class="fragment fade-in" width="80%"  style="position: absolute; top: 15%; left: 15%"  />
+    <img src="pics/webshot-onderivs-stdout.png" class="fragment fade-in" width="80%"  style="position: absolute; top: 20%; left: 20%"  />
+
+</div>
+  </section>
+
 </section>
 
 
  <section data-markdown  data-separator="^\n----\n" data-vertical="^\n---\n"><textarea data-template>
-# Thank you<br>for hanging till the End!
 
-## Let the reproducibility be with you
+## Take Home Messages: The Approach
+
+<!-- .slide: data-transition="fade" -->
+
+### Embrace SciOps
+
+- Be ~~greedy~~ thorough
+  - get as much as possible (even if you think you don't need it)
+  - know what you are going to do and what you have done:
+    - **automate provenance information collection**
+- Be ~~lazy~~ efficient
+  - manually do as little as necessary
+    - **automate as much as feasible**
+  - achieve more than originally planned
+- Be ~~not special~~ ~~academic~~ formal
+  - do not come up with *your ways*
+    - **use standardized approaches**
+  - become efficient collaborator
+
+----
+
+# Thank you!
+
+## Establish your SciOps and
+### Let the reproducibility be with you
 
 <a href="https://github.com/myyoda/poster/blob/master/ohbm2018.pdf" target="_blank"> <img  style="height:450px;margin:20px" data-src="pics/yoda.svg"/></a>
 
