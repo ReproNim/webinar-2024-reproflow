@@ -92,17 +92,7 @@
 <!-- .element: class="fragment" data-fragment-index="1" -->
 <img style="height:650px;margin-bottom:30px" data-src="pics/ReproSpectrum.png"/>
 
-<small>From <a href="https://phdcomics.com/comics/archive.php?comicid=1531">"What is Reproducibility"</a>  by DN Kennedy.</small>
-
-
-- Reproducible Execution ⊃ Re-Execution
-  - need *Exact Same* or *Nominally Similar* Data
-  - need *Exact Same* or *Nominally Similar* Analysis
-- Reproducible Execution is useful to Original
-  <!-- .element: class="fragment" data-fragment-index="3" -->
-  - rarely research project is "linear"
-
-<!-- .element: class="fragment" data-fragment-index="2" -->
+<small>From <a href="TODO!!!">"What is Reproducibility"</a>  by DN Kennedy.</small>
 
 
 ----
@@ -282,7 +272,7 @@ note:
 
 ----
 
-## Plan Ahead: Prior Webinars on "Languages" at tools to master them
+## Plan Ahead: Prior Webinars on "Languages" and tools to master them
 
 - *Harmonizing clinical and behavioral data collection through ReproSchema* by Satra Ghosh
 - *Tools and Techniques for BIDS Semantic Annotation and Query Across Datasets with NIDM* by David Keator
@@ -687,10 +677,45 @@ HeuDiConv support PR: https://github.com/nipy/heudiconv/pull/446
 </textarea></section></section>
 <section><section data-markdown  data-separator="^\n----\n" data-vertical="^\n---\n"><textarea data-template>
 
-## Plan Ahead: "Raw" audio/video stimuli
+## Plan Ahead: Automate collection of all related metadata (audio/video stimuli, events)
+
+(Operation code-name: ReproFlow)
+
+----
+
+### ReproFlow: MRI Experiment *Flow
+
+<!-- .slide: data-transition="fade" -->
+
+![reproflow](pics/reproflow-blank.png)
+
+----
+
+### ReproFlow: Used Standards/Technologies
+
+<!-- .slide: data-transition="fade" -->
+
+![reproflow](pics/reproflow-techs1.png)
+
+----
+
+### ReproFlow: Projects
+
+<!-- .slide: data-transition="fade" -->
+
+![reproflow](pics/reproflow-projects1.png)
+
+----
+
 
 ### Let's collect all video and audio stimuli as presented to the participants<br/>
 (Operation code-name: ReproStim)
+
+![](pics/reproflow-projects1-reprostim.png)
+
+![](pics/borrowed/magewell-schema-1.jpg)
+
+![](pics/borrowed/magewell-photo-1.jpg)
 
 ----
 ### But WHY/What For?
@@ -711,31 +736,110 @@ HeuDiConv support PR: https://github.com/nipy/heudiconv/pull/446
 - HOW:
   - [Video](https://www.amazon.com/gp/product/B00BLZDY6A/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1)/Audio splitters
   - Video/Audio grabber, e.g. [Magewell USB Capture DVI Plus](https://www.amazon.com/gp/product/B01MSDFAO5/)
-    - loseless video codec
   - A new video file upon connect/change of resolution<br>
 	 (e.g., `2020.11.24.12.57.08_2020.11.24.15.51.23.mkv`   <!-- .element: style="font-size:0.8em" -->)
   - Synchronization:
     - NTP where possible <br/>(stimuli delivery computer, video grabber, ...)
 	- video stream QR time-stamping and detection/decoding
-  - Automated "slicing" into BIDS datasets (WiP)
+  - Automated data synchronization/transfer using <a href="">git-annex assistant</a>
+  - Target: Automated "slicing" of audio-video into BIDS datasets
 
 </textarea></section></section>
 <section><section data-markdown  data-separator="^\n----\n" data-vertical="^\n---\n"><textarea data-template>
+
+### ReproFlow: Projects
+
+<!-- .slide: data-transition="fade" -->
+
+![reproflow](pics/reproflow-projects1.png)
+
+----
 
 ## Plan Ahead: Events description
 
 ### Automate collection of all events information in consistent machine-readable form<br/>
 (Operation code-name: ReproEvents)
 
-----
-### Still Planning Ahead: Join us
+![](pics/reproflow-projects1-reprostim.png)
 
-- **There is no generic library/helper yet**
-- Target: helper+converters for PsychoPy/PTB-3 to produce rich<br/>
-  BIDS [`_events.tsv` + `_events.json`](https://bids-specification.readthedocs.io/en/stable/04-modality-specific-files/07-behavioral-experiments.html)<br/>
-  with [Hierarchical Event Descriptors (HED)](https://github.com/hed-standard/hed-specification)
-- But with **little %effort** you should already make you stimuli
-  scripts/logs ready<br/> (see e.g., https://github.com/mvdoc/pitcher_localizer)
+----
+### ReproEvents: Two approaches for Current Design hardware
+
+![](pics/borrowed/curdes-932-1.png)    <!-- .element: style="width:40%" -->
+![](pics/borrowed/curdes-birch-1.png) <!-- .element: style="width:40%" -->
+
+- MicroPython board+code: collect events on 932 or Birch via AUX Port
+- Native Birch device "tune up"
+
+<small>
+
+**Disclaimer**: we have no affiliation or commercial interest in the
+curdes business
+
+</small>
+
+
+----
+### ReproEvents: Birch Response collector
+
+<div id="birch" style="position: absolute;
+                        top: -200px;
+                        right: -200px;
+                        width: 400px;
+                        height: 400px;">
+						<img src="pics/borrowed/curdes-birch-1.png"></img>
+ </div>
+
+- https://www.curdes.com/birch-optical-interface-unit.html
+- Contains Raspberry PI running [RaspberryPi](https://wiki.debian.org/RaspberryPi)
+  - we installed NTP client to sync the clock
+- Uses Python to run the GUI and record responses
+  - we patched to record events as JSON records:
+
+![birch events](pics/birch-events-1.png) <!-- .element: style="width:130%" -->
+
+----
+
+### ReproFlow: Projects
+
+![reproflow](pics/reproflow-projects1.png)
+
+----
+
+### Let's inform Experimenter about ongoing Repro-activities<br/>
+(Operation code-name: ReproMon)
+
+<!-- .slide: data-transition="fade" -->
+
+![](pics/reproflow-projects1-repromon.png)
+
+----
+### ReproMon: Monitor the humans and hardware
+
+<!-- .slide: data-transition="fade" -->
+
+Information/alert feedback for Researcher/MRI tech.
+
+![ReproMon](pics/repromon-20240607-1.png)
+
+----
+
+### ReproFlow: Take home summary
+
+<div id="birch" style="position: absolute;
+                        top: -200px;
+                        right: -200px;
+                        width: 400px;
+                        height: 400px;">
+						<img src="pics/reproflow-projects1.png"></img>
+ </div>
+
+- We are working on automation of collection of audio/video stimuli
+  and responses/events timing and alignment them into BIDS datasets
+- Sample collation of data are available from https://github.com/ReproNim/reproflow-data-sync
+- Many components are ready for deployment by enthusiasts
+- Coming: simplified installation on (Neuro)Debian-based systems
+- Visit our exhibit table and poster on ReproFlow at OHBM 2024
 
 </textarea></section></section>
 <section><section data-markdown  data-separator="^\n----\n" data-vertical="^\n---\n"><textarea data-template>
@@ -745,20 +849,14 @@ HeuDiConv support PR: https://github.com/nipy/heudiconv/pull/446
 - Plan to be ~~greedy~~ thorough
   - plan for **all** [5 ReproNim steps](http://5steps.repronim.org)
     (including *do-ing* analyses etc.)
-    - prepare to be (ab)used ([Halchenko&Hanke, 2015](http://dx.doi.org/10.1186/s13742-015-0072-7))
     - be ~~lazy~~ efficient and (re)use work of others
-    - choose what to (ab)use and possibly contribute to:
-      - language(s), analysis&execution platforms, ...
-  - **choose an RDM (Research Data Management) platform/approach**
+  - **choose an RDM for your SciOps**
       - decide how to *log* what you will have done
-  - **aim to collect rich(er) datasets**
-- Pre-register
-  - treat it as a checklist (now) and a "regression-test" (later)
-- Prepare/train humans to "talk" to computers
-  - [ReproNim Training](https://www.repronim.org/teach.html)
-  - Listen to and/or participate in
-    [BrainHacks](https://brainhack.org/tutorials.html)
-  - [DataLad Handbook](http://handbook.datalad.org)
+  - **aim to automate collection of rich(er) datasets**
+      - collect phantom data
+      - consider adopting elements of ReproFlow
+- Be ~~not special~~ ~~academic~~ formal
+  - **learn about and reuse existing standards and study workflows**
 
 </textarea></section></section>
 <section><section data-markdown  data-separator="^\n----\n" data-vertical="^\n---\n"><textarea data-template>
@@ -781,7 +879,6 @@ good RDM, and good (human- AND machine-) readable *logging*.
 - publication composition <!-- .element: class="fragment" data-fragment-index="2" -->
   - also automate as much as possible by tuning prior stages
 - keep in mind/plan for: <!-- .element: class="fragment" data-fragment-index="2" -->
-  - everything might need to be 'repeated'
   - pipelines are great, but could be tricky. Use pre-crafted:
     - MRIQC, fMRIPrep, C-PAC, ...
   - having a small number of modular steps allow for "ad-hoc" pipelining (minimal script
@@ -844,17 +941,17 @@ good RDM, and good (human- AND machine-) readable *logging*.
 
 </section>
 
-  <section data-transition="None">
-    <h3>
-      YODA style OpenNeuro Derivatives from CP5* OpenNeuro
-    </h3>
-<small>
-	<center><p>Explore/obtain yourself from <a href="https://github.com/OpenNeuroDerivatives">https://github.com/OpenNeuroDerivatives</a></p></center>
+<section data-transition="None">
+<h3>
+YODA style OpenNeuro Derivatives from CP5* OpenNeuro
+</h3>
+	<small>
+<center><p>Explore/obtain yourself from <a href="https://github.com/OpenNeuroDerivatives">https://github.com/OpenNeuroDerivatives</a></p></center>
 </small>
 
-<div style="position: relative; width: 100%; height: 80vh;">
+	<div style="position: relative; width: 100%; height: 80vh;">
 
-    <img src="pics/webshot-onderivs-listing.png" class="" width="80%" style="position: absolute; top: 0%; left: 0%" /> 
+    <img src="pics/webshot-onderivs-listing.png" class="" width="80%" style="position: absolute; top: 0%; left: 0%" />
     <img src="pics/webshot-onderivs-gitmodules.png" class="fragment fade-in" width="80%"  style="position: absolute; top: 5%; left: 5%"  />
     <img src="pics/webshot-onderivs-repromanfolder.png" class="fragment fade-in" width="80%"  style="position: absolute; top: 10%; left: 10%"  />
     <img src="pics/webshot-onderivs-commandarray.png" class="fragment fade-in" width="80%"  style="position: absolute; top: 15%; left: 15%"  />
@@ -865,10 +962,38 @@ good RDM, and good (human- AND machine-) readable *logging*.
 
 </section>
 
+<section data-markdown  data-separator="^\n----\n" data-vertical="^\n---\n"><textarea data-template>
 
- <section data-markdown  data-separator="^\n----\n" data-vertical="^\n---\n"><textarea data-template>
+## Welcome https://github.com/con/duct
 
-## Take Home Messages: The Approach
+![](pics/webshot-con-duct.png)
+
+----
+
+## duct as a runner within datalad containers-run
+
+<div style="position: relative; width: 100%; height: 90vh;">
+
+<img src="pics/screenshot-duct-diff.png" class="" width="80%" style="position: absolute; top: 0%; left: 0%" />
+<img src="pics/screenshot-duct-1.png" class="fragment fade-in" width="100%" style="position: absolute; top: 0%; left: 0%" />
+<img src="pics/screenshot-duct-2.png" class="fragment fade-in" width="100%" style="position: absolute; top: 25%; left: 0%" />
+<img src="pics/screenshot-duct-3.png" class="fragment fade-in" width="100%" style="position: absolute; top: 15%; left: 10%" />
+<img src="pics/screenshot-duct-4.png" class="fragment fade-in" width="100%" style="position: absolute; top: 60%; left: 10%" />
+
+
+----
+
+## Try duct for your SciOps!
+
+
+</div>
+
+</textarea>
+</section>
+
+<section data-markdown  data-separator="^\n----\n" data-vertical="^\n---\n"><textarea data-template>
+
+## Final Take Home Message
 
 <!-- .slide: data-transition="fade" -->
 
