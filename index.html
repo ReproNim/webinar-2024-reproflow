@@ -1,11 +1,10 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <title>Reproducible Execution of Data Collection/Processing </title>
+  <title>ReproFlow SciOps Automation Elements </title>
   <meta name="description" content="Slides for the ReproNim Webinar
 									talk which walks through various
-									aspects of a study to make it more
-									reproducible ">
+									automation aspects of a Reproducible Neuroimaging study workflow">
   <meta name="author" content=" Yaroslav O. Halchenko ">
 
   <meta charset="utf-8">
@@ -24,7 +23,7 @@
 <section>
 <section>
   <a href="http://centerforopenneuroscience.org/"><img data-src="pics/con-ccn-dartmouth-letterhead.svg"></a>
-  <h3>ReproFlow: Elements of a Study Workflow to Automate Data Collection/Processing</h3>
+  <h3>ReproFlow SciOps Automation Elements</h3>
 
     <div style="margin-top:1em;text-align:center">
     <table style="border: none;">
@@ -79,17 +78,19 @@
 
 
 <section>
-  <h2>Acknowledgements</h2>
+  <h2>Acknowledgments</h2>
 
 	 <a href="https://github.com/myyoda/poster/blob/master/ohbm2018.pdf" target="_blank"> <img  style="height:150px;margin:20px" data-src="pics/yoda.svg"/></a>
 	<img style="height:150px;margin-right:50px" data-src="pics/nsf1.jpg" />
 	<img style="height:150px;margin-right:50px" data-src="pics/nih.png" />
+<!--	<section    data-background-iframe="https://centerforopenneuroscience.org/whoweare#john_wodder_" data-background-interactive> -->
+	 <iframe src="https://centerforopenneuroscience.org/whoweare#john_wodder_" style="width:100%; height:600px;"></iframe>
 </section>
 </section>
 <section data-markdown  data-separator="^\n----\n" data-vertical="^\n---\n"><textarea data-template>
 
 <!-- .element: class="fragment" data-fragment-index="1" -->
-<img style="height:650px;margin-bottom:30px" data-src="pics/ReproSpectrum.png">
+<img style="height:650px;margin-bottom:30px" data-src="pics/ReproSpectrum.png"/>
 
 <small>From <a href="https://phdcomics.com/comics/archive.php?comicid=1531">"What is Reproducibility"</a>  by DN Kennedy.</small>
 
@@ -119,10 +120,22 @@ AKA "Reproducible by Design"
 
 # But HOW?
 
+----
+
+## Introducing SciOps: Aim for Level 4
+
 <!-- .slide: data-transition="fade" -->
+![CMM Fig 1](pics/borrowed/CMM-Fig1.png)
+
+<small>From <a href="https://arxiv.org/abs/2401.00077v1">"A Maturity Model for Operations in Neuroscience Research"</a>, 2023 by Erik C. Johnson, ..., Dimitri Yatsenko  <a href="https://arxiv.org/abs/2401.00077v1">https://arxiv.org/abs/2401.00077v1</a></small>
 
 ----
 
+# Where do we start?
+
+<!-- .slide: data-transition="fade" -->
+
+----
 
 ## HOWTO: Guiding principles
 <!-- .slide: data-transition="fade" -->
@@ -226,7 +239,7 @@ note:
   - it takes **%effort** to learn a new program
   - a program cannot learn to *talk* to another program,<br/> so it takes
     **%effort** to script "adapter" or "pipeline" communication between<br/>
-	(thank you NiPype and TR&D2 for helping out!)
+	(thank you NiPype, TR&D2, BIDS-Apps, Boutiques, etc for helping out!)
 
 ----
 
@@ -241,9 +254,20 @@ note:
 - make programs interface via standard(ized) interface(s):
  - BIDS-Apps, ABC apps, Boutiques, Flywheel Gears, ...
 - contribute to development of standards to
- - become part of their 80% coverage
  - **minimize the %effort to produce results in a standard form so<br/>
   they could be re-used with minimal %effort to produce new results**
+ - become part of their 80% coverage
+   - <!-- .element: class="fragment" data-fragment-index="2" --> share your use-cases: <a href="https://github.com/bids-standard/bids-2-devel/issues/62">bids-2-devel/issues/62</a>
+
+----
+
+## Plan Ahead: Prior Webinars on "Languages" at tools to master them
+
+- *Harmonizing clinical and behavioral data collection through ReproSchema* by Satra Ghosh
+- *Tools and Techniques for BIDS Semantic Annotation and Query Across Datasets with NIDM* by David Keator
+- *Damn it Jim, I am a researcher not an ontologist: Exploring and using terminologies* by Jeff Grethe
+- ... and more at https://www.repronim.org/webinar-series.html
+
 
 ----
 
@@ -300,6 +324,9 @@ note:
   - **(some) humans and (many) computers**: <br>
     automated data collection/processing (<20% effort)
 
+![CMM Fig 1](pics/borrowed/CMM-Fig1.png)
+<!-- .element: class="fragment" data-fragment-index="2" -->
+
 ----
 
 ### Recipe Steps&Ingredients for Planing Ahead (>80% effort)
@@ -313,9 +340,9 @@ note:
   - plan for **all** [5 ReproNim steps](http://5steps.repronim.org)
     (including *do-ing* analyses etc.)
     - prepare to be (ab)used ([Halchenko&Hanke, 2015](http://dx.doi.org/10.1186/s13742-015-0072-7))
-    - be ~~lazy~~ efficient and (re)use work of others
-    - choose what to (ab)use and possibly contribute to:
-      - language(s), analysis&execution platforms, ...
+    - be ~~lazy~~ efficient and learn from/(re)use work of others
+	- improve your study workflow SciOps
+      - check webinar from <a href="https://youtu.be/zFr8DyTGhxQ">Dec 2, 2022 by Keith Bush</a>
   - **choose an RDM (Research Data Management) platform/approach**
       - decide how to *log* what you will have done
   - **aim to collect rich(er) datasets**
@@ -359,6 +386,7 @@ https://github.com/myyoda/poster/ <br/>by Michael Hanke (CP7, DataLad) et al.
 
 https://github.com/ReproNim/containers/
 
+<!--
 ----
 
 ### Example: YODA's DataLad Reproducible Paper
@@ -367,6 +395,7 @@ https://github.com/ReproNim/containers/
 
 http://handbook.datalad.org/en/latest/usecases/reproducible-paper.html <br/>by
 ReproNim YODA master Adina Wagner, Michael Hanke, et al.
+-->
 
 ----
 
@@ -423,16 +452,6 @@ Re *any relevant*:
 Re *standard form*:
 - without it - **high %effort** for a human/computer to understand it
 
-----
-
-## Plan Ahead: Prior Webinars on "Languages" at tools to master them
-
-- *Harmonizing clinical and behavioral data collection through ReproSchema* by Satra Ghosh
-- *Tools and Techniques for BIDS Semantic Annotation and Query Across Datasets with NIDM* by David Keator
-- *Damn it Jim, I am a researcher not an ontologist: Exploring and using terminologies* by Jeff Grethe
-- ... and more at https://www.repronim.org/webinar-series.html
-
-
 </textarea></section></section>
 <section><section data-markdown  data-separator="^\n----\n" data-vertical="^\n---\n"><textarea data-template>
 
@@ -457,12 +476,35 @@ Re *standard form*:
     ReproNim Guru Chris Rorden for basic DICOM -> NIfTIs conversion
   - BIDS-aware and comes with a collection of conversion heuristics
 
+----
+
+### Plan Ahead: HeuDiConv/ReproIn
+
 - **ReproIn** (https://github.com/repronim/reproin)
   - A convention for organizing and naming sequences on the scanner
     console
 	- BIDS-like
 	- **very low %effort to "adopt"**
   - HeuDiConv heuristic to convert from such convention to BIDS
+  - Can be used to retroactively "map" into ReproIn (see <a
+    href="https://github.com/ReproNim/reproin/issues/18">reproin/issues/18</a>)
+  - Prototype <a
+    href="https://github.com/ReproNim/reproin/blob/master/bin/reproin">reproin</a>
+    script provides higher level functionality: study-create,
+    study-convert, study-show, ...
+
+----
+
+### CRON Job: reproin lists-update-study-shows
+
+![CRON Job email](pics/reproin-lists-update-study-show-email-20240607.png)
+
+<small>
+
+More about our setup at
+https://github.com/ReproNim/reproin/tree/master?tab=readme-ov-file#complete-setup-at-dbic
+
+</small>
 
 ----
 ### Plan Ahead: use ReproIn Convention
@@ -470,13 +512,24 @@ Re *standard form*:
 ![DBIC conversions](pics/dbic-conversions.png)
 
 ----
+### ReproIn Convention: Use ReproIn-namer by Will Foran
+
+ <iframe src="https://npacore.github.io/reproin-namer/" style="width:100%; height:600px;"></iframe>
+
+
+<small>
+
+Use/contribute back: https://github.com/NPACore/reproin-namer
+</small>
+
+----
 ### Plan Ahead: ReproIn or not but automate conversion to BIDS!
 
 - *Taking Control of your DICOM Data: ReproIn/Heudiconv Tools*
   webinar https://www.repronim.org/webinar-series.html
-- WiP: reproin  helper to streamline handling of multiple studies
+- Consider using reproin  helper to streamline handling of multiple studies
 - If not ReproIn, consider
-  - https://github.com/psychoinformatics-de/datalad-hirni (Hanke, CP7)
+  <!--  - https://github.com/psychoinformatics-de/datalad-hirni (Hanke, CP7) -->
   - https://github.com/brainlife/ezbids (Pestilli, Brainlife, CP6*)
   - https://bids.neuroimaging.io/benefits.html#converters ...
 
@@ -503,6 +556,7 @@ http://datasets.datalad.org/centerforopenneuroscience/nuisance/presentations/202
 
 GitHub:  <!-- .element: style="font-size:0.6em" --> https://github.com/proj-nuisance/nuisance
 
+<!--
 ----
 
 ### Planned Ahead: (somewhat)
@@ -522,6 +576,7 @@ GitHub:  <!-- .element: style="font-size:0.6em" --> https://github.com/proj-nuis
   - [DataLad](http://datalad.org), [datalad-container](http://handbook.datalad.org/en/latest/basics/101-133-containersrun.html?), [///ReproNim/containers](https://github.com/ReproNim/containers)
 - Organization: follows [YODA principles](https://github.com/myyoda/poster/blob/master/ohbm2018.pdf)
   - https://github.com/proj-nuisance/nuisance
+-->
 
 ----
 ### What we know: Phantoms are good for scanner QA
@@ -540,22 +595,15 @@ and the variance is largely "noise", right?
 ![Fig 2](pics/f1000-webshot-20200930-fig2.png)
 
 ----
-
 ### Model: Phantom SNR (variables)
 
 ![Table 2](pics/f1000-webshot-20200930-tab2.png)
 
 ----
+### But why do we care about "noise?"
 
-### Model: Gray brain matter
+![Power](pics/borrowed/somesite-power-analysis.png)
 
-![Fig 3](pics/f1000-webshot-20200930-fig3.png)
-
-----
-
-### Model: Gray brain matter (variables)
-
-![Table 3](pics/f1000-webshot-20200930-tab3.png)
 
 ----
 ### Plan Ahead: Talk to your MR physicist/technician
